@@ -57,7 +57,7 @@ class Solution:
         fast = dummyNode
         slow = dummyNode
 
-    
+        # move fast to nth node
         for i in range(n):
             fast = fast.next
 
@@ -84,4 +84,5 @@ class Solution:
         return dummyNode.next
 
 head = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))
+Solution().removeNthFromEndTwoPtrs(head, 2)
 Solution().removeNthFromEndTwoPtrs(head, 2)
