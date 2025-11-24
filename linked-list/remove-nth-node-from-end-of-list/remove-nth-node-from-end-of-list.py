@@ -50,8 +50,38 @@ class Solution:
             
         
         return dummyNode.next
+    
+    def removeNthFromEndTwoPtrs(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+        dummyNode = ListNode(0, head)
 
+        fast = dummyNode
+        slow = dummyNode
 
+    
+        for i in range(n):
+            fast = fast.next
+
+        # iter 1: f = from 0 to 1
+        # iter 2: f = from 1 to 2
+
+        # 0 1 2 3 4 5
+        # s   f 
+
+        # 0 1 2 3 4 5
+        #   s   f  
+
+        # 0 1 2 3 4 5
+        #     s   f 
+
+        # 0 1 2 3 4 5
+        #       s   f
+        while fast.next:
+            fast = fast.next
+            slow = slow.next
+            
+        slow.next = slow.next.next
+        
+        return dummyNode.next
 
 head = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))
-Solution().removeNthFromEnd(head, 2)
+Solution().removeNthFromEndTwoPtrs(head, 2)
